@@ -5,6 +5,8 @@
  */
 package leyendadenacho;
 
+import javafx.scene.image.Image;
+
 /**
  *
  * @author LENOVO
@@ -12,10 +14,13 @@ package leyendadenacho;
 public class Fondo {
     private int x;
     private int y;
+    private Image place;
 
-    public Fondo(int x, int y) {
+    public Fondo(int x, int y, String place) {
         this.x = x;
         this.y = y;
+        this.place = new Image(place);
+        jkl
     }
 
     public int getX() {
@@ -25,6 +30,12 @@ public class Fondo {
     public int getY() {
         return y;
     }
+
+    public Image getPlace() {
+        return place;
+    }
+
+    
     
 
     
