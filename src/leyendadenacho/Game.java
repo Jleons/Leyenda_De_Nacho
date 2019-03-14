@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -30,7 +30,8 @@ public class Game extends AnimationTimer{
     
     private Jugador jugador;
     private Fondo fondo;
-    private Image place;
+    private Fondo npc_1;
+    
     private Image prota;
     private double secuencia =0;
     private int numero ; 
@@ -44,8 +45,8 @@ public class Game extends AnimationTimer{
         this.lapiz = lapiz;
         this.escena= escena;
         this.jugador= new Jugador(16, 18);
-        this.fondo= new Fondo(-250, -500);
-        this.place= new Image("image/cheruido.png");
+        this.fondo= new Fondo(-250, -500,"image/cheruido.png" );
+        this.npc_1= new Fondo(200,100, "image/metacho.png");
         this.prota= new Image("image/prota.png");
         pulsacionTeclado = new ArrayList<>();
         
@@ -91,14 +92,14 @@ public class Game extends AnimationTimer{
     public void handle(long now) {
         
         
-        
-        
-        lapiz.drawImage(this.place, fondo.getX(), fondo.getY());
-        
+            
+        lapiz.drawImage(fondo.getPlace(), fondo.getX(), fondo.getY());
+        lapiz.drawImage(npc_1.getPlace(), npc_1.getX(), npc_1.getY());
         
         
                 if (pulsacionTeclado.contains("LEFT")){
                   fondo.left();
+                  npc_1.left();
                   this.secuencia= 6;
                   if(this.numero % 10 == 0){
                 if(this.secuencia == 8){
@@ -111,6 +112,7 @@ public class Game extends AnimationTimer{
                 
                 if (pulsacionTeclado.contains("RIGHT")){
                   fondo.right();
+                  npc_1.right();
                   this.secuencia=9;
                   if(this.numero % 10 == 0){
                 if(this.secuencia == 11){
@@ -122,6 +124,7 @@ public class Game extends AnimationTimer{
                 }
                 if (pulsacionTeclado.contains("UP")){
                   fondo.up();
+                  npc_1.up();
                   this.secuencia=0;
                   
                   if(this.numero % 15 == 0){
@@ -134,6 +137,7 @@ public class Game extends AnimationTimer{
                 }
                 if (pulsacionTeclado.contains("DOWN")){
                   fondo.down();
+                  npc_1.down();
                   this.secuencia= 3;
                   
                   if(this.numero % 15 == 0){
